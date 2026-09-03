@@ -1,0 +1,41 @@
+services:
+
+  postgres:
+    image: postgres:16
+    container_name: intelliops-postgres
+
+    environment:
+      POSTGRES_DB: intelliops_db
+      POSTGRES_USER: intelliops_user
+      POSTGRES_PASSWORD: intelliops_dev_password
+
+    ports:
+      - "5433:5432"
+
+    volumes:
+      - intelliops_postgres_data:/var/lib/postgresql/data
+
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U intelliops_user -d intelliops_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./backend
+
+    container_name: intelliops-backend
+
+    environment:
+      DATABASE_URL: postgresql+psycopg://intelliops_user:intelliops_dev_password@postgres:5432/intelliops_db
+
+    ports:
+      - "8000:8000"
+
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  intelliops_postgres_data:
