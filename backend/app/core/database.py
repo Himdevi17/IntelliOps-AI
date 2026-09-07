@@ -5,6 +5,7 @@ from sqlalchemy.orm import sessionmaker
 from app.core.config import DATABASE_URL
 from app.models.base import Base
 from app.models.user import User
+from app.models.plant import Plant
 
 
 engine = create_engine(DATABASE_URL)
