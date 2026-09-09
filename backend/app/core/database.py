@@ -21,7 +21,7 @@ def get_db():
     db = SessionLocal()
     try:
         yield db
-    finally:
+    finally: 
         db.close()
 
 def create_tables():

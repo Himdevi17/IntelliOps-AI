@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from app.core.database import create_tables
 from app.routers.user_router import router as user_router
 from app.routers.plant_router import router as plant_router
+from app.routers.ai_router import router as ai_router
 
 create_tables()
 
@@ -12,7 +13,7 @@ app = FastAPI(
 )
 app.include_router(user_router)
 app.include_router(plant_router)
-
+app.include_router(ai_router)
 @app.get("/")
 def root():
     return {

@@ -1,0 +1,19 @@
+INTELLIOPS PLANT OPERATIONS KNOWLEDGE
+
+Plant NP001 is a production facility used for material processing and packaging.
+
+Production:
+The normal production target for Plant NP001 is 1000 units per shift.
+A production result below 800 units per shift is considered low production.
+
+Maintenance:
+If a production line stops unexpectedly, the operator should first check the machine status and maintenance alerts.
+Unplanned machine downtime can reduce production output.
+
+Quality:
+Finished products must pass the quality inspection before dispatch.
+Products that fail inspection must be separated and reported to the quality team.
+
+Safety:
+Operators must follow plant safety procedures and wear the required personal protective equipment (PPE).
+Any safety incident must be reported to the plant supervisor immediately.
